@@ -1,9 +1,8 @@
-import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
-import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:food_delivery/pages/Profile.dart';
 import 'package:food_delivery/pages/home.dart';
 import 'package:food_delivery/pages/order.dart';
+import 'package:food_delivery/pages/profile.dart';
 import 'package:food_delivery/pages/wallet.dart';
 
 class BottomNav extends StatefulWidget {
@@ -37,42 +36,33 @@ class _BottomNavState extends State<BottomNav> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: CurvedNavigationBar(
-        height: 65,
-        backgroundColor: Colors.white,
-        color: Colors.black,
-        animationDuration: Duration(milliseconds: 500),
-        onTap: (int index) {
-          setState(() {
-            currentTabIndex = index;
-          });
-        },
-        items: [
-          CurvedNavigationBarItem(
-            child: Icon(
+          height: 65,
+          backgroundColor: Colors.white,
+          color: Colors.black,
+          animationDuration: Duration(milliseconds: 500),
+          onTap: (int index) {
+            setState(() {
+              currentTabIndex = index;
+            });
+          },
+          items: [
+            Icon(
               Icons.home_outlined,
               color: Colors.white,
             ),
-          ),
-          CurvedNavigationBarItem(
-            child: Icon(
+            Icon(
               Icons.shopping_bag_outlined,
               color: Colors.white,
             ),
-          ),
-          CurvedNavigationBarItem(
-            child: Icon(
+            Icon(
               Icons.wallet_outlined,
               color: Colors.white,
             ),
-          ),
-          CurvedNavigationBarItem(
-            child: Icon(
+            Icon(
               Icons.person_outline,
               color: Colors.white,
-            ),
-          ),
-        ],
-      ),
+            )
+          ]),
       body: pages[currentTabIndex],
     );
   }
